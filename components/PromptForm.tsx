@@ -89,7 +89,8 @@ const ImageUpload: React.FC<{
 const PromptForm: React.FC<{onGenerate: (p: GenerateVideoParams) => void, initialValues?: GenerateVideoParams | null}> = ({onGenerate, initialValues}) => {
   const [prompt, setPrompt] = useState(initialValues?.prompt ?? '');
   const [model, setModel] = useState<VeoModel>(initialValues?.model ?? VeoModel.VEO_FAST);
-  const [aspectRatio, setAspectRatio] = useState<AspectRatio>(initialValues?.aspectRatio ?? AspectRatio.LANDSCAPE);
+  // Fix: AspectRatio.LANDSCAPE replaced with AspectRatio.A16_9
+  const [aspectRatio, setAspectRatio] = useState<AspectRatio>(initialValues?.aspectRatio ?? AspectRatio.A16_9);
   const [resolution, setResolution] = useState<Resolution>(initialValues?.resolution ?? Resolution.P720);
   const [generationMode, setGenerationMode] = useState<GenerationMode>(initialValues?.mode ?? GenerationMode.TEXT_TO_VIDEO);
   const [startFrame, setStartFrame] = useState<ImageFile | null>(initialValues?.startFrame ?? null);
@@ -104,7 +105,8 @@ const PromptForm: React.FC<{onGenerate: (p: GenerateVideoParams) => void, initia
     if (initialValues) {
       setPrompt(initialValues.prompt ?? '');
       setModel(initialValues.model ?? VeoModel.VEO_FAST);
-      setAspectRatio(initialValues.aspectRatio ?? AspectRatio.LANDSCAPE);
+      // Fix: AspectRatio.LANDSCAPE replaced with AspectRatio.A16_9
+      setAspectRatio(initialValues.aspectRatio ?? AspectRatio.A16_9);
       setResolution(initialValues.resolution ?? Resolution.P720);
       setGenerationMode(initialValues.mode ?? GenerationMode.TEXT_TO_VIDEO);
       setStartFrame(initialValues.startFrame ?? null);
@@ -230,8 +232,9 @@ const PromptForm: React.FC<{onGenerate: (p: GenerateVideoParams) => void, initia
              <div className="space-y-1">
                 <label className="text-[10px] uppercase tracking-widest text-white/30 font-bold">Aspect</label>
                 <select value={aspectRatio} onChange={e => setAspectRatio(e.target.value as AspectRatio)} className="w-full bg-white/5 border border-white/5 rounded-xl px-3 py-2 text-xs text-white">
-                  <option value={AspectRatio.LANDSCAPE}>16:9 (Landscape)</option>
-                  <option value={AspectRatio.PORTRAIT}>9:16 (Portrait)</option>
+                  {/* Fix: use AspectRatio.A16_9 and AspectRatio.A9_16 instead of LANDSCAPE/PORTRAIT */}
+                  <option value={AspectRatio.A16_9}>16:9 (Landscape)</option>
+                  <option value={AspectRatio.A9_16}>9:16 (Portrait)</option>
                 </select>
              </div>
           </div>

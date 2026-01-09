@@ -1,6 +1,10 @@
 {
-  "name": "Copy of The Pyramid Keepers Studio",
-  "description": "An adventure story and alignment diagnostic. Generate episodes of the Pyramid Keepers to explore the FIELD architecture.",
-  "requestFramePermissions": [],
+  "name": "The Pyramid Keepers Studio",
+  "description": "The ultimate FIELD architecture tool. Adventure story and alignment diagnostic featuring video, chat, voice, grounding, and image synthesis.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone",
+    "geolocation"
+  ],
   "prompt": ""
 }

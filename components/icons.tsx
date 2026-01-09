@@ -1,3 +1,4 @@
+
 /**
  * @license
  * SPDX-License-Identifier: Apache-2.0
@@ -18,6 +19,16 @@ import {
   Sparkles,
   Tv,
   X,
+  MessageSquare,
+  Mic,
+  MapPin,
+  Search,
+  Volume2,
+  Wand2,
+  Brain,
+  Video as VideoIcon,
+  Send,
+  Loader2
 } from 'lucide-react';
 
 const defaultProps = {
@@ -80,7 +91,46 @@ export const FilmIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
   <Film {...defaultProps} {...props} />
 );
 
-// This icon had a different stroke width in the original file, so we preserve it.
+export const ChatIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
+  <MessageSquare {...defaultProps} {...props} />
+);
+
+export const MicIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
+  <Mic {...defaultProps} {...props} />
+);
+
+export const MapIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
+  <MapPin {...defaultProps} {...props} />
+);
+
+export const SearchIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
+  <Search {...defaultProps} {...props} />
+);
+
+export const VolumeIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
+  <Volume2 {...defaultProps} {...props} />
+);
+
+export const WandIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
+  <Wand2 {...defaultProps} {...props} />
+);
+
+export const BrainIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
+  <Brain {...defaultProps} {...props} />
+);
+
+export const VideoCameraIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
+  <VideoIcon {...defaultProps} {...props} />
+);
+
+export const SendIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
+  <Send {...defaultProps} {...props} />
+);
+
+export const LoadingIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
+  <Loader2 {...defaultProps} className={`animate-spin ${props.className}`} />
+);
+
 export const CurvedArrowDownIcon: React.FC<React.SVGProps<SVGSVGElement>> = (
   props,
 ) => <ArrowDown {...props} strokeWidth={3} />;

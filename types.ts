@@ -1,8 +1,9 @@
+
 /**
  * @license
  * SPDX-License-Identifier: Apache-2.0
 */
-import {Video} from '@google/genai';
+import { Video } from '@google/genai';
 
 export enum AppState {
   IDLE,
@@ -11,14 +12,31 @@ export enum AppState {
   ERROR,
 }
 
+export enum KeeperTab {
+  OBI = 'Obi', // Chat & Thinking
+  TATA = 'Tata', // Video Gen & Analysis
+  ATLAS = 'Atlas', // Maps & Search Grounding
+  ARKADAS = 'Arkadaş', // Live Audio & TTS
+  DOJO = 'Dojo', // Image Gen & Editing
+}
+
 export enum VeoModel {
   VEO_FAST = 'veo-3.1-fast-generate-preview',
   VEO = 'veo-3.1-generate-preview',
 }
 
 export enum AspectRatio {
-  LANDSCAPE = '16:9',
-  PORTRAIT = '9:16',
+  A1_1 = '1:1',
+  A3_4 = '3:4',
+  A4_3 = '4:3',
+  A9_16 = '9:16',
+  A16_9 = '16:9',
+}
+
+export enum ImageSize {
+  K1 = '1K',
+  K2 = '2K',
+  K4 = '4K',
 }
 
 export enum Resolution {
@@ -56,4 +74,10 @@ export interface GenerateVideoParams {
   inputVideo?: VideoFile | null;
   inputVideoObject?: Video | null;
   isLooping?: boolean;
+}
+
+export interface ChatMessage {
+  role: 'user' | 'model';
+  text: string;
+  groundingUrls?: {uri: string; title: string}[];
 }
